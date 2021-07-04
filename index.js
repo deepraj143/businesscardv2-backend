@@ -32,6 +32,5 @@ const db = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.D
 
 app.use("/",login);
 
-
-app.listen(5000,()=>{console.log(`
+app.listen(process.env.PORT || 5000,()=>{console.log(`
 =======================>Listening on port number 5000`)})
