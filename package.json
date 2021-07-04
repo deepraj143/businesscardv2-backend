@@ -22,10 +22,10 @@
     "mariadb": "^2.5.3",
     "mysql2": "^2.2.5",
     "sequelize": "^6.6.2",
-    "sequelize-auto": "^0.8.2"
+    "sequelize-auto": "^0.8.2",
+    "supervisor": "^0.12.0"
   },
   "devDependencies": {
-    "sequelize-cli": "^6.2.0",
-    "supervisor": "^0.12.0"
+    "sequelize-cli": "^6.2.0"
   }
 }
