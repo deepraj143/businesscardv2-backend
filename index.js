@@ -7,7 +7,7 @@ const login=require('./Router/index')
 const { Sequelize } = require('sequelize');
 const dotenv = require('dotenv')
 
-app.use(cors({origin:'http://localhost:3000',credentials:true}));
+app.use(cors({origin:process.env.FRONTEND_DOMAIN,credentials:true}));
 app.use(express.json())
 app.use(express.urlencoded({extended:true}));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -32,5 +32,5 @@ const db = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.D
 
 app.use("/",login);
 
-app.listen(process.env.PORT || 5000,()=>{console.log(`
+app.listen(process.env.PORT || 80,()=>{console.log(`
 =======================>Listening on port number 5000`)})
