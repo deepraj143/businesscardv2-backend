@@ -122,7 +122,7 @@ router.post("/login",schema_login,async(req,res)=>{
         else{
           const token = jwt.sign({ user_id: savedUser.user_id }, process.env.ACCESS_TOKEN_SECRET,{expiresIn:'90000000'});
           const validationResult = {status:'Login Successful Redirecting Now!!',message:[{token:token}]}
-          res.cookie('token', token, { httpOnly: true , domain:'netlify.app',secure:true});
+          res.cookie('token', token, { httpOnly: true ,sameSite:'None', domain:'business-card-generator.netlify.app',secure:true});
           return res.status(200).json(validationResult) 
         }
       }
