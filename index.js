@@ -9,6 +9,7 @@ const dotenv = require('dotenv');
 const cookieSession = require('cookie-session');
 
 app.use(cors({origin:process.env.FRONTEND_DOMAIN,credentials:true}));
+app.set('trust proxy', 1)
 app.use(
   cookieSession({
     signed:false,
