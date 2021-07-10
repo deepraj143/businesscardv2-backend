@@ -3,10 +3,10 @@ const jwt = require('jsonwebtoken')
 
 const verifyToken = (req,res,next) =>{
     try{
-        if(req.cookies !== undefined && req.cookies.token !== undefined && req.cookies.token !== null)
+        if(req.cookies !== undefined && req.session.jwt !== undefined && req.session.jwt !== null)
         {
             try{
-                const result = jwt.verify(req.cookies.token,process.env.ACCESS_TOKEN_SECRET);
+                const result = jwt.verify(req.session.jwt,process.env.ACCESS_TOKEN_SECRET);
                 res.locals.user_id = result.user_id;
                 next();
             }
