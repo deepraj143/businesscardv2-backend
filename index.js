@@ -5,9 +5,16 @@ const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const login=require('./Router/index')
 const { Sequelize } = require('sequelize');
-const dotenv = require('dotenv')
+const dotenv = require('dotenv');
+const cookieSession = require('cookie-session');
 
 app.use(cors({origin:process.env.FRONTEND_DOMAIN,credentials:true}));
+app.use(
+  cookieSession({
+    signed:false,
+    secure:false
+  })
+)
 app.use(express.json())
 app.use(express.urlencoded({extended:true}));
 app.use(bodyParser.urlencoded({ extended: true }));
