@@ -15,7 +15,6 @@ app.use(
   cookieSession({
     signed:false,
     secure:true,
-    domain:"netlify.app",
     sameSite:'none'
   })
 )
