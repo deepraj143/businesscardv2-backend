@@ -121,9 +121,10 @@ router.post("/login",schema_login,async(req,res)=>{
         }
         else{
           const token = jwt.sign({ user_id: savedUser.user_id }, process.env.ACCESS_TOKEN_SECRET,{expiresIn:'90000000'});
-          const validationResult = {status:'Login Successful Redirecting Now!!',message:[{token:token}]}
           req.session.jwt=token;
+          const validationResult = {status:'Login Successful Redirecting Now!!',message:[{token:token}]}
           // res.cookie('token', token, { httpOnly: true ,sameSite:'None', domain:'netlify.app',secure:true,path:'/'});
+          // res.cookie('token', token, { httpOnly: true});
           return res.status(200).json(validationResult) 
         }
       }

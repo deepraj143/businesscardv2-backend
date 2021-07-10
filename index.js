@@ -9,11 +9,13 @@ const dotenv = require('dotenv');
 const cookieSession = require('cookie-session');
 
 app.use(cors({origin:process.env.FRONTEND_DOMAIN,credentials:true}));
+// app.use(cors({origin:"http://localhost:3000",credentials:true}));
 app.set('trust proxy', 1)
 app.use(
   cookieSession({
     signed:false,
-    secure:false
+    secure:true,
+
   })
 )
 app.use(express.json())
@@ -25,7 +27,7 @@ dotenv.config();
 const db = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASS, {
     host: process.env.DB_HOST,
     port:process.env.DB_PORT,
-    dialect:process.env.DB_DIALECT
+    dialect:process.env.DB_DIALECT,
     // dialect: 'mariadb'
   });
   const connectdb = async() =>{
