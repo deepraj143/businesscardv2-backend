@@ -380,13 +380,13 @@ router.get('/fetchAllemployeedetails',verifyToken,async(req,res)=>{
 
 //Addemployee
 router.post("/Addemployee",verifyToken, 
-[
-  body().isArray(),
-  body('*.name','not be black').notEmpty(),
-  body('*.email','invalid emi=ail').isEmail(),
-  body('*.phonenumber', ' must be a number').isNumeric(),
-  body('*.department','not be black').notEmpty(),
-],
+// [
+//   body().isArray(),
+//   body('*.name','not be black').notEmpty(),
+//   body('*.email','invalid emi=ail').isEmail(),
+//   body('*.phonenumber', ' must be a number').isNumeric(),
+//   body('*.department','not be black').notEmpty(),
+// ],
 async(req,res)=>{
   let errors = validationResult(req);
   const rename=req.body.map(e=>{
