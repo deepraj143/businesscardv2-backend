@@ -710,9 +710,10 @@ router.post("/verify", verifyToken, async(req,res)=>{
 
 //Verify user
 router.post("/logout", async(req,res)=>{
+  req.session.jwt = ''
   res
   .status(200)
-  .clearCookie('token').json({status:"User Logged Out Successfully",message:[]})
+  .json({status:"User Logged Out Successfully",message:[]})
 })
 
 
