@@ -15,7 +15,8 @@ app.use(
   cookieSession({
     signed:false,
     secure:true,
-
+    domain:"https://business-card-generator.netlify.app",
+    sameSite:'none'
   })
 )
 app.use(express.json())
